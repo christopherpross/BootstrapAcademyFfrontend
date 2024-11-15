@@ -31,10 +31,11 @@ jobs:
           echo ${{ github.event.number }} > .pr
       - name: Upload dist
         if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: |
             dist/
             .pr
           retention-days: 1
+          include-hidden-files: true
