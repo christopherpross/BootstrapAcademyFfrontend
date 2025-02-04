@@ -3,7 +3,7 @@
     class="container-fluid bg-secondary flex gap-4 items-center justify-between"
   >
     <Btn tertiary :icon="ArrowLeftIcon" @click="onclickNavigate">
-      <img src="/images/logo.png" class="w-6 h-auto object-contain" alt="" />
+      <img src="/images/logo.png" class="w-6 h-auto object-contain" :alt="t('AltAttributes.BootstrapAcademyLogo')" />
 
       {{ t(backRoute.label) }}
     </Btn>
@@ -127,7 +127,7 @@ export default defineComponent({
         console.log("going back");
         pathname = `/courses/${route.query?.course ?? ""}/watch?section=${
           route.query?.section ?? ""
-        }/${route.query?.lecture ?? ""}&skillID=${
+        }&lecture=${route.query?.lecture ?? ""}&skillID=${
           route.query?.skillID ?? ""
         }&subSkillID=${route.query?.subSkillID ?? ""}`;
         label = "Links.GoToCourse";

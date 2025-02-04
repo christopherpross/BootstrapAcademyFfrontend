@@ -5,14 +5,14 @@
 		<Transition>
 			<section
 				v-if="show"
-				class="w-screen h-screen fixed left-0 top-0 z-50"
+				class="w-screen h-screen fixed left-0 top-0 z-[10000]"
 				@click.self="closeMenu"
 			>
 				<aside class="h-full w-72 bg-tertiary p-[5vw] sm:p-9 shadow-2xl">
 					<NuxtLink to="/" class="flex gap-card-sm items-center">
 						<img
 							src="/images/logo-text.png"
-							alt="Bootstrap Academy logo"
+							:alt="t('AltAttributes.BootstrapAcademyLogo')"
 							class="object-contain w-28 cursor-pointer"
 						/>
 					</NuxtLink>
@@ -40,26 +40,26 @@ import { Bars3Icon } from '@heroicons/vue/24/solid';
 import { useI18n } from 'vue-i18n';
 
 export default {
-	components: { Bars3Icon },
-	props: {
-		links: { default: [] },
-	},
-	setup() {
-		const { t } = useI18n();
+  components: { Bars3Icon },
+  props: {
+    links: { default: [] },
+  },
+  setup() {
+    const { t } = useI18n();
 
-		const show = ref(false);
+    const show = ref(false);
 
-		function closeMenu() {
-			setTimeout(() => {
-				show.value = false;
-			}, 100);
-		}
-		function toggleMenu() {
-			show.value = !show.value;
-		}
+    function closeMenu() {
+      setTimeout(() => {
+        show.value = false;
+      }, 100);
+    }
+    function toggleMenu() {
+      show.value = !show.value;
+    }
 
-		return { show, closeMenu, toggleMenu, Bars3Icon, t };
-	},
+    return { show, closeMenu, toggleMenu, Bars3Icon, t };
+  },
 };
 </script>
 
